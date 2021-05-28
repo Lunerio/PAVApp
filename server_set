@@ -1,0 +1,36 @@
+#!/bin/bash
+# This script configures the server based on a Raspberry
+
+# Install packages
+sudo apt update
+sudo apt install -y nginx python3-pip
+sudo pip3 install Flask
+sudo apt upgrade -y
+
+# Set static IP address
+echo "auto eth0
+iface eth0 inet static
+      address 192.168.1.110
+      netmask 255.255.255.0
+      gateway 192.168.1.1
+      dns-nameservers 4.4.4.4
+      dns-nameservers 8.8.8.8" | sudo tee /etc/network/interfaces
+sudo service networking restart
+
+# Set domain to connect to the Raspberry server through it
+if grep "pavapp" /etc/hosts
+then
+    :
+else
+    echo "127.0.0.1	pavapp
+0.0.0.0		pavapp" | sudo tee -a /etc/hosts
+fi
+if grep "pavapp" /etc/hostname
+then
+    :
+else
+    echo "pavapp" | sudo tee -a /etc/hostname
+fi
+
+#Reboot the Raspberry to commit changes
+sudo reboot
