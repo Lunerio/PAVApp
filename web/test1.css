@@ -13,3 +13,10 @@ h1, h3, h5 {
 .quick_start {
     text-align: right;
 }
+
+.form-check-input[type=checkbox] {
+    border-radius: 2em;
+    height: 19px;
+    width: 38px;
+    margin-right: 5px;
+}
