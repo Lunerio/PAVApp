@@ -3,8 +3,12 @@
 
 # Install packages
 sudo apt update
-sudo apt install -y nginx python3-pip
+sudo apt install -y python3-pip
 sudo pip3 install Flask
+sudo apt install -y nodejs
+sudo apt install -y npm
+sudo npm install --global yarn
+sudo npm install -g @vue/cli
 sudo apt upgrade -y
 
 # Set static IP address
@@ -29,7 +33,7 @@ if grep "pavapp" /etc/hostname
 then
     :
 else
-    echo "pavapp" | sudo tee -a /etc/hostname
+    echo "pavapp" | sudo tee /etc/hostname
 fi
 
 #Reboot the Raspberry to commit changes
