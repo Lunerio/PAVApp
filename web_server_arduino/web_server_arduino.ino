@@ -98,18 +98,19 @@ void turnOn() {
   }
 
   digitalWrite(RELAY, HIGH);
+  String placeholder_text = "Heating up water, please hold\n";
+  server.sendHeader("Access-Control-Allow-Origin", "*");
+  server.send(200, "text/plain", placeholder_text);
 
   while (tempValue >= Temperature) {
+    // Handle other requests while heating up
+    server.handleClient();
+    // Update Temperature value to make necessary checks
     sensorDS18B20.requestTemperatures();
     Temperature = sensorDS18B20.getTempCByIndex(0);
   }
 
   digitalWrite(RELAY, LOW);
-//  digitalWrite(RELAY, HIGH);
-//  String status_text = "";
-//  status_text += digitalRead(RELAY);
-//  server.sendHeader("Access-Control-Allow-Origin", "*");
-//  server.send(200, "text/plain", status_text);
 }
 
 void turnOff() {
