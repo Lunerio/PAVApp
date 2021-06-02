@@ -7,13 +7,19 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import axios from 'axios'
+ 
 export default {
   name: 'App',
   components: {
     HelloWorld
-  }
-}
+  },
+  async mounted() {
+    const res = await axios.get('http://192.168.1.100/');
+    alert(JSON.stringify(res.data));
+  },
+};
+ 
 </script>
 
 <style>
