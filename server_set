@@ -12,6 +12,9 @@ sudo npm install -g @vue/cli
 sudo apt upgrade -y
 
 # Set static IP address
+# On the gateway address change to your router IP address
+# On the address value write the static IP address you want on your server
+
 echo "auto eth0
 iface eth0 inet static
       address 192.168.1.110
@@ -19,9 +22,13 @@ iface eth0 inet static
       gateway 192.168.1.1
       dns-nameservers 4.4.4.4
       dns-nameservers 8.8.8.8" | sudo tee /etc/network/interfaces
-sudo service networking restart
 
 # Set domain to connect to the Raspberry server through it
+# Change pavapp to the name of the server you want to keep
+# This will allow the user to connect to the page with
+# name.local. For example, here you connect to the web page
+# with pavapp.local
+
 if grep "pavapp" /etc/hosts
 then
     :
@@ -36,5 +43,5 @@ else
     echo "pavapp" | sudo tee /etc/hostname
 fi
 
-#Reboot the Raspberry to commit changes
-sudo reboot
+#Restart the network service to commit changes
+sudo service networking restart
