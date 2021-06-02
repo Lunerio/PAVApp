@@ -1,12 +1,13 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="PAVApp"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import './assets/theme.css' 
+import HelloWorld from './HelloWorld.vue'
 import axios from 'axios'
  
 export default {
