@@ -1,0 +1,37 @@
+#######################################
+# Syntax Coloring Map For Arduino_MKRENV
+####################################### 
+# Class
+#######################################
+
+Arduino_MKRENV	KEYWORD1
+MKRENV	KEYWORD1
+ENV	KEYWORD1
+
+#######################################
+# Methods and Functions 
+#######################################	
+
+begin	KEYWORD2
+end	KEYWORD2
+
+readTemperature	KEYWORD2
+readHumidity	KEYWORD2
+readPressure	KEYWORD2
+readIlluminance	KEYWORD2
+readUVA	KEYWORD2
+readUVB	KEYWORD2
+readUVIndex	KEYWORD2
+
+#######################################
+# Constants
+#######################################
+
+FAHRENHEIT	LITERAL1
+CELSIUS	LITERAL1
+PSI	LITERAL1
+MILLIBAR	LITERAL1
+KILOPASCAL	LITERAL1
+FOOTCANDLE	LITERAL1
+METERCANDLE	LITERAL1
+LUX	LITERAL1

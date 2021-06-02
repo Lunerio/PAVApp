@@ -1,0 +1,92 @@
+#######################################
+# Syntax Coloring Map For plex64
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+Plex64 KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+readAnalog	KEYWORD2
+setChannel	KEYWORD2
+setAllChannels	KEYWORD2
+begin	KEYWORD2
+getAllChannels	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+plex64	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+E0	LITERAL1
+E1	LITERAL1
+E2	LITERAL1
+E3	LITERAL1
+E4	LITERAL1
+E5	LITERAL1
+E6	LITERAL1
+E7	LITERAL1
+E8	LITERAL1
+E9	LITERAL1
+E10	LITERAL1
+E11	LITERAL1
+E12	LITERAL1
+E13	LITERAL1
+E14	LITERAL1
+E15	LITERAL1
+F0	LITERAL1
+F1	LITERAL1
+F2	LITERAL1
+F3	LITERAL1
+F4	LITERAL1
+F5	LITERAL1
+F6	LITERAL1
+F7	LITERAL1
+F8	LITERAL1
+F9	LITERAL1
+F10	LITERAL1
+F11	LITERAL1
+F12	LITERAL1
+F13	LITERAL1
+F14	LITERAL1
+F15	LITERAL1
+G0	LITERAL1
+G1	LITERAL1
+G2	LITERAL1
+G3	LITERAL1
+G4	LITERAL1
+G5	LITERAL1
+G6	LITERAL1
+G7	LITERAL1
+G8	LITERAL1
+G9	LITERAL1
+G10	LITERAL1
+G11	LITERAL1
+G12	LITERAL1
+G13	LITERAL1
+G14	LITERAL1
+G15	LITERAL1
+H0	LITERAL1
+H1	LITERAL1
+H2	LITERAL1
+H3	LITERAL1
+H4	LITERAL1
+H5	LITERAL1
+H6	LITERAL1
+H7	LITERAL1
+H8	LITERAL1
+H9	LITERAL1
+H10	LITERAL1
+H11	LITERAL1
+H12	LITERAL1
+H13	LITERAL1
+H14	LITERAL1
+H15	LITERAL1
