@@ -11,10 +11,12 @@
 * Copy the content of the libraries folder inside the repository into the libraries folder of the Arduino IDE.
 * Open the the Arduino IDE as superuser.
 * Go to Tools -> Board -> Boards manager.
-* Search for this library and install it: (picture of the library)
+* Search for this library and install it:
+![esp_lib](https://raw.githubusercontent.com/Lunerio/PAVApp/main/pictures/esp_lib.png)
 * Select the correct board on Tools -> Board -> ESP8266 boards -> Generic ESP8266 Module.
 * Open the web_server_arduino.ino file from the repository folder.
-* Edit the file to match the login information of your WiFi router. (picture here)
+* Edit the file to match the login information of your WiFi router.
+![wifi_config](https://raw.githubusercontent.com/Lunerio/PAVApp/main/pictures/device_wifi_conf.png)
 * Press the flash button on the SONOFF Mini DIY board and then connect it to the USB Port.
 * On Tools -> Port choose the correct USB port.
 * Upload the code to the device.
@@ -25,7 +27,8 @@
 
 ### server_set
 * This script configures the server, installing necessary programs and libraries. It also changes the configuration of the server in order to set an static IP address locally, and a host name to have a connection through a domain rather than using the IP address each time.
-* Modify the values with the given instructions within the script. (picture here)
+* Modify the values with the given instructions within the script.
+![server_conf](https://raw.githubusercontent.com/Lunerio/PAVApp/main/pictures/server_ip.png)
 * If you want to run the server locally follow these instructions after editing the file:
 ```
 sudo chmod +x server_set
