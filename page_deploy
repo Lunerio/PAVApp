@@ -1,0 +1,13 @@
+#!/bin/bash
+# This script will copy the needed files to the server
+# With the given IP address and it will start the VUE.js service
+IP=$2
+USER=$1
+if [[ $# -lt 2 ]]
+then
+	echo "Usage: ./page_deploy <server_user> <server_ip>"
+else
+	scp -r ./pavapp-web $USER@$IP:~
+	ssh $USER@$IP '(cd ~/pavapp-web/ ; sudo yarn install --network-timeout 600000)'
+	ssh $USER@$IP '(cd ~/pavapp-web/ ; sudo yarn serve)'
+fi
