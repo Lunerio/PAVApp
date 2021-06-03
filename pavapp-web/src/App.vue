@@ -8,16 +8,11 @@
 <script>
 import './assets/theme.css' 
 import HelloWorld from './HelloWorld.vue'
-import axios from 'axios'
  
 export default {
   name: 'App',
   components: {
     HelloWorld
-  },
-  async mounted() {
-    const res = await axios.get('http://192.168.1.100/');
-    alert(JSON.stringify(res.data));
   },
 };
  

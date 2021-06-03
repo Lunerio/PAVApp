@@ -70,6 +70,7 @@ input:checked + .slider:before {
 
 .slidecontainer {
   width: 100%; /* Width of the outside container */
+  border-radius: 100px;
 }
 
 /* The slider itself */
