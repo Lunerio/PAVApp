@@ -43,6 +43,19 @@ ssh user@ip '~/server_set'
 ```
 
 ## Deploying the web page
-### web_deploy
-* This script will configure the needed files in order to run the web page that controls the device. It also starts the web application.
+### page_deploy
 * Edit "This file" in order to connect the page with the correct IP address of the device.
+* This script will configure the needed files in order to run the web page that controls the device. It also starts the web application.
+* In case you want to run the VUE application on the current computer do the following:
+```
+cd pavapp-web
+sudo yarn install --network-timeout 600000
+sudo yarn serve
+```
+* If you want to run the app from a remote computer run the page_deploy script like this:
+```
+sudo chmod +x page_deploy
+./page_deploy <server_user> <server_ip>
+```
+It will automatically take the remote user and IP address and copy the needed files and it will run the VUE.js application. After this you can connect to the web page using the hostname of the server like this: hostname.local
+
