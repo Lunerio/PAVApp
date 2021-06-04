@@ -25,22 +25,17 @@ export default {
   },
   data() {
     return {
-      sliderValue: 0,
+      sliderValue: 60,
     };
   },
   async mounted () {
     const actualtemp = await axios.get("http://localhost:5000/actualTemp");
-    this.sliderValue = actualtemp.data
-  },
+    alert(res.data);
+  }
   methods: {
     handler: async function () {
-      const actualstatus = await axios.get("http://localhost:5000/actualStatus");
-      if (actualstatus.data == 1) { 
-        setTimeout (async () => {
-          const res = await axios.get("http://localhost:5000/on?temp=" + this.sliderValue);
-          alert(JSON.stringify(res.data));
-        },500)
-      }
+      const res = await axios.get("http://localhost:5000/on");
+      alert(JSON.stringify(res.data));
     },
   },
 };

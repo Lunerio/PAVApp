@@ -25,24 +25,23 @@ export default {
     msg: String,
   },
   async mounted() {
-    const res = await axios.get("http://192.168.1.100/");
+    const res = await axios.get("http://localhost:5000/actualStatus");
     alert(JSON.stringify(res.data));
-    var status = res.data.split("/");
-    console.log(status[1]);
-    if (status[1] == "1") {
+    console.log(res.data);
+    if (res.data == "1") {
       this.encendida = true;
     }
-    if (status[1] == "0") {
+    if (res.data == "0") {
       this.encendida = false;
     }
   },
   methods: {
     greet: async function () {
       if (!this.encendida) {
-        const on = await axios.get("http://192.168.1.100/on");
+        const on = await axios.get("http://localhost:5000/on");
         alert(JSON.stringify(on.data));
       } else {
-        const off = await axios.get("http://192.168.1.100/off");
+        const off = await axios.get("http://localhost:5000/off");
         alert(JSON.stringify(off.data));
       }
       this.encendida = !this.encendida;
