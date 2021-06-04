@@ -38,9 +38,6 @@ export default {
   },
   methods: {
     greet: async function () {
-      // `this` inside methods points to the Vue instance
-      // alert('Hello ' + this.name + '!')
-      // `event` is the native DOM event
       if (!this.encendida) {
         const on = await axios.get("http://192.168.1.100/on");
         alert(JSON.stringify(on.data));
