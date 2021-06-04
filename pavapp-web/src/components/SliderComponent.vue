@@ -29,15 +29,15 @@ export default {
     };
   },
   async mounted () {
-    const actualtemp = await axios.get("http://localhost:5000/actualTemp");
+    const actualtemp = await axios.get("192.168.1.100/actualTemp");
     this.sliderValue = actualtemp.data
   },
   methods: {
     handler: async function () {
-      const actualstatus = await axios.get("http://localhost:5000/actualStatus");
+      const actualstatus = await axios.get("192.168.1.100/actualStatus");
       if (actualstatus.data == 1) { 
         setTimeout (async () => {
-          const res = await axios.get("http://localhost:5000/on?temp=" + this.sliderValue);
+          const res = await axios.get("192.168.1.100/on?temp=" + this.sliderValue);
           alert(JSON.stringify(res.data));
         },500)
       }
