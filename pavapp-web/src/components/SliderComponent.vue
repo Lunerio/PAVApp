@@ -30,14 +30,13 @@ export default {
   },
   methods: {
     handler: async function () {
-      const res = await axios.get("http://localhost:5000/on");
-      alert(JSON.stringify(res.data));
+      const statustemp = await axios.get("http://localhost:5000/on");
+      alert(JSON.stringify(statustemp.data));
     },
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .box {
   padding: 10px;
