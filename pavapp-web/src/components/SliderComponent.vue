@@ -4,6 +4,7 @@
       <round-slider
         v-bind:change="handler"
         v-model="sliderValue"
+        v-bind:tooltipFormat="degrees"
         handleSize="35"
         radius="150"
         circleShape="pie"
@@ -33,6 +34,9 @@ export default {
     this.sliderValue = actualtemp.data
   },
   methods: {
+    degrees: function (args) {
+      return args.value + "°C";
+    },
     handler: async function () {
       const actualstatus = await axios.get("192.168.1.100/actualStatus");
       if (actualstatus.data == 1) { 
