@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="PAVAapp Logo" src="./assets/PAVApp-logo.png" />
+    <img alt="PAVAapp Logo" src="./assets/PAVApp-logo-white.png" />
     <HelloWorld msg="PAVApp" />
     <SliderComponent />
   </div>
