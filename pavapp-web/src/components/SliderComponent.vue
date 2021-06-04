@@ -10,6 +10,9 @@
         circleShape="pie"
         startAngle="-45"
         endAngle="180"
+        tooltipColor=#204376 
+        rangeColor=#33E995
+        pathColor=#204376
       ></round-slider>
     </div>
   </div>
