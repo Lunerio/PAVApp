@@ -2,17 +2,20 @@
   <div id="app">
     <img alt="PAVAapp Logo" src="./assets/PAVApp-logo.png">
     <HelloWorld msg="PAVApp"/>
+    <SliderComponent/>
   </div>
 </template>
 
 <script>
 import './assets/theme.css' 
-import HelloWorld from './HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue'
+import SliderComponent from './components/SliderComponent.vue'
  
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    SliderComponent
   },
 };
  
