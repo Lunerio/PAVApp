@@ -3,8 +3,9 @@
 
 # Install packages
 sudo apt update
-sudo apt install -y python3-pip
-sudo pip3 install Flask
+sudo apt install -y avahi-daemon
+# sudo apt install -y python3-pip
+# sudo pip3 install Flask
 sudo apt install -y nodejs
 sudo apt install -y npm
 sudo npm install --global yarn
@@ -45,3 +46,4 @@ fi
 
 #Restart the network service to commit changes
 sudo service networking restart
+sudo reboot

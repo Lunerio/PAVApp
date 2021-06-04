@@ -59,3 +59,13 @@ sudo chmod +x page_deploy
 ```
 It will automatically take the remote user and IP address and copy the needed files and it will run the VUE.js application. After this you can connect to the web page using the hostname of the server like this: hostname.local
 
+### Extra configuration
+In case you want to run the service when the server machine boots up, open with sudo nano add the following lines inside the /etc/rc.local file before the exit 0 line (on Raspberry Pi):
+```
+if find ~ -name 'pavapp-web'
+then
+	(cd ~/pavapp-web ; sudo yarn serve)
+else
+	:
+fi
+```
