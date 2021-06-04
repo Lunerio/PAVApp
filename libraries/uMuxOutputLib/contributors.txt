@@ -1,0 +1,2 @@
+Naguissa - https://github.com/Naguissa
+per1234 - https://github.com/per1234 - New dependencies handling on Arduino

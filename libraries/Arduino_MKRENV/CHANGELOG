@@ -1,0 +1,10 @@
+Arduino_MKRENV ?.?.? - ????.??.??
+
+Arduino_MKRENV 1.1.0 - 2019.06.04
+
+* Added imperial units support
+* Added readIlluminance() API to replace readLux()
+
+Arduino_MKRENV 1.0.0 - 2018.11.28
+
+* Initial release

@@ -1,0 +1,32 @@
+#######################################
+# Syntax Coloring Map
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+DoubleResetDetector_Generic
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+detectDoubleReset		KEYWORD2
+loop	KEYWORD2
+stop	KEYWORD2
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+DRD_GENERIC_USE_EEPROM  LITERAL1
+DRD_GENERIC_USE_SAMD  LITERAL1
+DRD_GENERIC_USE_SAM_DUE LITERAL1
+DRD_GENERIC_USE_NRF52 LITERAL1
+DOUBLERESETDETECTOR_GENERIC_FLAG_SET  LITERAL1
+DOUBLERESETDETECTOR_GENERIC_FLAG_CLEAR  LITERAL1
+FLAG_DATA_SIZE  LITERAL1
+DRD_FILENAME  LITERAL1
+DRD_FLAG_OFFSET LITERAL1
