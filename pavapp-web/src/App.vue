@@ -1,24 +1,23 @@
 <template>
   <div id="app">
-    <img alt="PAVAapp Logo" src="./assets/PAVApp-logo.png">
-    <HelloWorld msg="PAVApp"/>
-    <SliderComponent/>
+    <img alt="PAVAapp Logo" src="./assets/PAVApp-logo.png" />
+    <HelloWorld msg="PAVApp" />
+    <SliderComponent />
   </div>
 </template>
 
 <script>
-import './assets/theme.css' 
-import HelloWorld from './components/HelloWorld.vue'
-import SliderComponent from './components/SliderComponent.vue'
- 
+import "./assets/theme.css";
+import HelloWorld from "./components/HelloWorld.vue";
+import SliderComponent from "./components/SliderComponent.vue";
+
 export default {
-  name: 'App',
+  name: "App",
   components: {
     HelloWorld,
-    SliderComponent
+    SliderComponent,
   },
 };
- 
 </script>
 
 <style>
