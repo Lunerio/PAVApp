@@ -2,20 +2,17 @@
   <div id="app">
     <img alt="PAVAapp Logo" src="./assets/PAVApp-logo-white.jpg" />
     <HelloWorld msg="PAVApp" />
-    <SliderComponent />
   </div>
 </template>
 
 <script>
 import "./assets/theme.css";
 import HelloWorld from "./components/HelloWorld.vue";
-import SliderComponent from "./components/SliderComponent.vue";
 
 export default {
   name: "App",
   components: {
     HelloWorld,
-    SliderComponent,
   },
 };
 </script>
@@ -26,5 +23,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   margin-top: 60px;
+}
+.box {
+  padding: 10px;
+  display: inline-block;
 }
 </style>
