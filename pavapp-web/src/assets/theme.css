@@ -11,7 +11,8 @@ img {
 }
 
 p {
-  font: 150% Arial; 
+  font: 200% Fantasy, Helvetica, Arial, sans-serif; 
+  color: #204376;
 }
 
 .switch input {
@@ -51,7 +52,7 @@ p {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #33E995;
 }
 
 input:focus + .slider {
