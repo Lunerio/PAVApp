@@ -18,9 +18,9 @@
         circleShape="pie"
         startAngle="-45"
         endAngle="180"
-        tooltipColor=#204376 
-        rangeColor=#33E995
-        pathColor=#204376
+        tooltipColor="#204376"
+        rangeColor="#33E995"
+        pathColor="#204376"
       ></round-slider>
     </div>
   </div>
@@ -36,9 +36,9 @@ export default {
     RoundSlider,
   },
   data() {
-    return { 
+    return {
       encendida: false,
-      sliderValue: 0,    
+      sliderValue: 0,
     };
   },
   props: {
