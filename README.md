@@ -1,5 +1,7 @@
 # PAVApp. Be the real owner of your smart kettle
-![logo](https://raw.githubusercontent.com/Lunerio/PAVApp/main/pictures/pavapp_logo.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Lunerio/PAVApp/main/pictures/pavapp_logo.png" alt="logo"/>
+</p>
 ## Devices used
 * SONOFF Mini DIY
 * DS18B20 temperature sensor
