@@ -12,7 +12,7 @@
 * Open the the Arduino IDE as superuser.
 * Go to File -> Preferences.
 * On the following section paste this link: https://arduino.esp8266.com/stable/package_esp8266com_index.json
-(picture link)
+![pref_link](https://raw.githubusercontent.com/Lunerio/PAVApp/main/pictures/link_preferences.png)
 * Go to Tools -> Board -> Boards manager.
 * Search for this library and install it:
 ![esp_lib](https://raw.githubusercontent.com/Lunerio/PAVApp/main/pictures/esp_lib.png)
