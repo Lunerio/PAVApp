@@ -7,7 +7,6 @@ if [[ $# -lt 2 ]]
 then
 	echo "Usage: ./page_deploy <server_user> <server_ip>"
 else
-	rsync -avz ./pavapp-web $USER@$IP:~
+	sudo rsync -avze "ssh" --rsync-path="sudo rsync" ./pavapp-web $USER@$IP:~
 	ssh $USER@$IP '(cd ~/pavapp-web/ ; sudo yarn install --network-timeout 600000)'
-	ssh $USER@$IP '(cd ~/pavapp-web/ ; sudo yarn serve)'
 fi
