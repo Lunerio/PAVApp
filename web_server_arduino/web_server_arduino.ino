@@ -93,7 +93,7 @@ void turnOn() {
     return;
   }
 
-  if (tempValue == 0) {
+  if (tempValue <= 0 || tempValue > 100) {
     tempValue = 100;
   }
 
