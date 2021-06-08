@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="PAVAapp Logo" src="./assets/PAVApp-logo-white.jpg" />
+    <img alt="PAVAapp Logo" src="./assets/PAVApp-logo.png" />
     <HelloWorld msg="PAVApp" />
   </div>
 </template>

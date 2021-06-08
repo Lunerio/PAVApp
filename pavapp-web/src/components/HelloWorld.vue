@@ -3,14 +3,14 @@
     <p>
       Off
       <label class="switch">
-        <input v-on:click="greet" type="checkbox" :checked="encendida" />
+        <input v-on:click="onSwitch" type="checkbox" :checked="encendida" />
         <span class="slider round"></span>
       </label>
       On
     </p>
     <div class="box">
       <round-slider
-        v-bind:change="handler"
+        v-bind:change="onChange"
         v-model="sliderValue"
         v-bind:tooltipFormat="degrees"
         handleSize="35"
@@ -45,9 +45,9 @@ export default {
     msg: String,
   },
   async mounted() {
-    const actualtemp = await axios.get("http://localhost:5000/actualTemp");
+    const actualtemp = await axios.get("http://192.168.1.111/actualTemp");
     this.sliderValue = actualtemp.data;
-    const actualstatus = await axios.get("http://localhost:5000/actualStatus");
+    const actualstatus = await axios.get("http://192.168.1.111/actualStatus");
     if (actualstatus.data == "1") {
       this.encendida = true;
     }
@@ -59,25 +59,19 @@ export default {
     degrees: function (args) {
       return args.value + "°C";
     },
-    handler: async function () {
-      // const actualstatus = await axios.get("http://localhost:5000/actualStatus");
+    onChange: async function () {
       if (!this.encendida) {
-        this.encendida = true;
         setTimeout(async () => {
-          const res = await axios.get(
-            "192.168.1.100/on?temp=" + this.sliderValue
-          );
-          alert(JSON.stringify(res.data));
+          await axios.get("http://192.168.1.111/on?temp=" + this.sliderValue);
+          this.encendida = true;
         }, 500);
       }
     },
-    greet: async function () {
+    onSwitch: async function () {
       if (!this.encendida) {
-        const on = await axios.get("http://localhost:5000/on");
-        alert(JSON.stringify(on.data));
+        await axios.get("http://192.168.1.111/on");
       } else {
-        const off = await axios.get("http://localhost:5000/off");
-        alert(JSON.stringify(off.data));
+        await axios.get("http://192.168.1.111/off");
       }
       this.encendida = !this.encendida;
     },
