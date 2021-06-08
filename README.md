@@ -73,7 +73,7 @@ In case you want to run the service when the server machine boots up, open the c
 ```
 
 ### Authors
-* Micaela Percovich - [Github](https://github.com/mi-kei-la) - micaela.percovich@gmail.com
-* Miguel Crespi - [Github](https://github.com/tucucrespi) - mcrespicampomar@gmail.com
 * Carlos Araque - [Github](https://github.com/carlosaraque22) - cararqueu@gmail.com
 * Hugo Gomez - [Github](https://github.com/Lunerio/) - lunerio@outlook.es
+* Micaela Percovich - [Github](https://github.com/mi-kei-la) - micaela.percovich@gmail.com
+* Miguel Crespi - [Github](https://github.com/tucucrespi) - mcrespicampomar@gmail.com
