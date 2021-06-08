@@ -1,5 +1,6 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
+#include <WiFiClient.h>
 #include <DallasTemperature.h>
 #include <OneWire.h>
 
@@ -8,9 +9,16 @@
 OneWire oneWireObjeto(PinDatos);
 DallasTemperature sensorDS18B20(&oneWireObjeto);
 
-// WiFi information
+// Router information
 const char* ssid = "TP-LINK_B228EE";  
 const char* password = "123456789"; 
+
+// Static IP information
+IPAddress staticIP(192, 168, 1, 111); //Static IP address
+IPAddress gateway(192, 168, 1, 1); //Router's IP address
+IPAddress subnet(255, 255, 255, 0);
+IPAddress dns(8, 8, 8, 8);
+const char* deviceName = "pava";
 
 // Create server
 ESP8266WebServer server(80);
@@ -32,8 +40,8 @@ void setup() {
   Serial.begin(115200);
 
   // Connect to WiFi network
-  Serial.println("Connecting to ");
-  Serial.println(ssid);
+  WiFi.hostname(deviceName);
+  WiFi.config(staticIP, gateway, subnet, dns);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(1000);
@@ -93,7 +101,7 @@ void turnOn() {
     return;
   }
 
-  if (tempValue <= 0 || tempValue > 100) {
+  if (tempValue == 0) {
     tempValue = 100;
   }
 
