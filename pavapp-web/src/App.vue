@@ -3,7 +3,11 @@
     <img alt="PAVAapp Logo" src="./assets/PAVApp-logo.png" />
     <HelloWorld msg="PAVApp" />
     <label class="switch">
-      <input type="checkbox" v-on:click="changeTheme" :value="'Cambiar '+theme" />
+      <input
+        type="checkbox"
+        v-on:click="changeTheme"
+        :value="'Cambiar ' + theme"
+      />
       <span class="slider round"></span>
     </label>
   </div>
@@ -24,22 +28,22 @@ export default {
   },
   data() {
     return {
-      theme: "white-theme"
-    }
+      theme: "white-theme",
+    };
   },
   methods: {
     changeTheme: async function () {
-      this.theme = (this.theme === "black-theme") ? "white-theme" : "black-theme";
-      this.changeBodyClass()
+      this.theme = this.theme === "black-theme" ? "white-theme" : "black-theme";
+      this.changeBodyClass();
     },
 
-    changeBodyClass () { 
+    changeBodyClass() {
       if (this.theme === "white-theme") {
-         document.body.setAttribute("class", "white-theme")
+        document.body.setAttribute("class", "white-theme");
       } else {
-        document.body.setAttribute("class", "black-theme")
+        document.body.setAttribute("class", "black-theme");
       }
-    }
-  }
+    },
+  },
 };
 </script>

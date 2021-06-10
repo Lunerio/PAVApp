@@ -66,8 +66,7 @@ export default {
           await axios.get("http://localhost:5000/on?temp=" + this.sliderValue);
           this.encendida = true;
         }, 500);
-      } 
-      else {
+      } else {
         setTimeout(async () => {
           await axios.get("http://localhost:5000/on?temp=" + this.sliderValue);
         }, 500);
