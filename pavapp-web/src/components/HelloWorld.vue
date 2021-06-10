@@ -8,7 +8,7 @@
       </label>
       On
     </p>
-    <div> {{status}} </div>
+    <div>{{ status }}</div>
     <div class="box">
       <round-slider
         v-bind:change="onChange"
@@ -53,14 +53,16 @@ export default {
       const actualtemp = await axios.get("http://192.168.1.111/actualTemp");
       this.sliderValue = actualtemp.data;
       setInterval(async () => {
-        const actualstatus = await axios.get("http://192.168.1.111/actualStatus");
+        const actualstatus = await axios.get(
+          "http://192.168.1.111/actualStatus"
+        );
         if (actualstatus.data == "1") {
           this.status = "Heating up, please hold";
         }
         if (actualstatus.data == "0") {
           this.encendida = false;
           this.status = "You can take your kettle now";
-          stop; 
+          stop;
         }
       }, 500);
     }
