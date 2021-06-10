@@ -2,7 +2,10 @@
   <div id="app">
     <img alt="PAVAapp Logo" src="./assets/PAVApp-logo.png" />
     <HelloWorld msg="PAVApp" />
-    <input type="button" @click="changeTheme()" :value="'Cambiar '+theme" />
+    <label class="switch">
+      <input type="checkbox" v-on:click="changeTheme" :value="'Cambiar '+theme" />
+      <span class="slider round"></span>
+    </label>
   </div>
 </template>
 
@@ -25,7 +28,7 @@ export default {
     }
   },
   methods: {
-    changeTheme() {
+    changeTheme: async function () {
       this.theme = (this.theme === "black-theme") ? "white-theme" : "black-theme";
       this.changeBodyClass()
     },
