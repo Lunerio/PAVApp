@@ -45,14 +45,16 @@ export default {
     msg: String,
   },
   async mounted() {
-    const actualtemp = await axios.get("http://localhost:5000/actualTemp");
-    this.sliderValue = actualtemp.data;
-    const actualstatus = await axios.get("http://localhost:5000/actualStatus");
+    const actualstatus = await axios.get("http://192.168.1.111/actualStatus");
     if (actualstatus.data == "1") {
       this.encendida = true;
     }
     if (actualstatus.data == "0") {
       this.encendida = false;
+    }
+    if (this.encendida) {
+    const actualtemp = await axios.get("http://192.168.1.111/actualTemp");
+    this.sliderValue = actualtemp.data;
     }
   },
   // http://192.168.1.111
@@ -63,20 +65,20 @@ export default {
     onChange: async function () {
       if (!this.encendida) {
         setTimeout(async () => {
-          await axios.get("http://localhost:5000/on?temp=" + this.sliderValue);
+          await axios.get("http://192.168.1.111/on?temp=" + this.sliderValue);
           this.encendida = true;
         }, 500);
       } else {
         setTimeout(async () => {
-          await axios.get("http://localhost:5000/on?temp=" + this.sliderValue);
+          await axios.get("http://192.168.1.111/on?temp=" + this.sliderValue);
         }, 500);
       }
     },
     onSwitch: async function () {
       if (!this.encendida) {
-        await axios.get("http://localhost:5000/on?temp=" + this.sliderValue);
+        await axios.get("http://192.168.1.111/on?temp=" + this.sliderValue);
       } else {
-        await axios.get("http://localhost:5000/off");
+        await axios.get("http://192.168.1.111/off");
       }
       this.encendida = !this.encendida;
     },

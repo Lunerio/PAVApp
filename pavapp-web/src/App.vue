@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <img alt="PAVAapp Logo" src="./assets/PAVApp-logo.png" />
-    <HelloWorld msg="PAVApp" />
-    <label class="switch">
+    <label class="switch2">
       <input
         type="checkbox"
         v-on:click="changeTheme"
         :value="'Cambiar ' + theme"
       />
-      <span class="slider round"></span>
+      <span class="slider rounded"></span>
     </label>
+    <img alt="PAVAapp Logo" src="./assets/PAVApp-logo.png" />
+    <HelloWorld msg="PAVApp" />
   </div>
 </template>
 
