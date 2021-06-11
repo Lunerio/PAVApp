@@ -1,4 +1,4 @@
-i<template>
+<template>
   <div class="hello">
     <p>
       <label class="switch">
@@ -51,7 +51,7 @@ export default {
       await axios.get("http://192.168.1.111/actualStatus");
     } catch (error) {
       console.log(error);
-      this.failed = "The kettle is disconnected!!"
+      this.failed = "The kettle is disconnected!!";
     }
     const actualstatus = await axios.get("http://192.168.1.111/actualStatus");
     if (actualstatus.data == "1") {
