@@ -4,8 +4,6 @@
 # Install packages
 sudo apt update
 sudo apt install -y avahi-daemon
-sudo apt install -y python3-pip
-sudo pip3 install Flask
 sudo apt install -y nodejs
 sudo apt install -y npm
 sudo npm install --global yarn
@@ -15,6 +13,9 @@ sudo apt upgrade -y
 # Set static IP address
 # On the gateway address change to your router IP address
 # On the address value write the static IP address you want on your server
+# IMPORTANT NOTE: If you want to set an static IP address you need to run these commands, but they won't allow to have an internet connection:
+sudo service dhcpcd stop
+sudo systemctl disable dhcpcd
 
 echo "auto eth0
 iface eth0 inet static

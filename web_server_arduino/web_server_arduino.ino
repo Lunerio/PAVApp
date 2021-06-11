@@ -98,12 +98,12 @@ void turnOn() {
   if (server.hasArg("temp")) {
     userInput = server.arg(0).toFloat();
   }
-  int tempValue = int((userInput * 80.0)/100.0);
+  int tempValue = int((userInput * 75.0)/100.0);
   sensorDS18B20.requestTemperatures();
   Temperature = sensorDS18B20.getTempCByIndex(0);
 
-  if (tempValue == 0 || tempValue < 0 || tempValue > 100) {
-    tempValue = 80;
+  if (tempValue == 0 || tempValue < 0 || tempValue >= 100) {
+    tempValue = 82;
   }
 
   if (tempValue <= Temperature) {
