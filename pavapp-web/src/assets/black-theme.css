@@ -1,9 +1,9 @@
 .black-theme {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  margin-top: 60px;
-  background-color: #000000;
-  font: 200% Helvetica, Arial, sans-serif;
-  color: #f5f5f5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    margin-top: 60px;
+    background-color: #000000;
+    font: 200% Helvetica, Arial, sans-serif;
+    color: #f5f5f5;
 }
