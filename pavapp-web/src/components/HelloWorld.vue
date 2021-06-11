@@ -48,6 +48,11 @@ export default {
   },
   async mounted() {
     try { 
+      await axios.get("http://192.168.1.111/actualStatus");
+    } catch (error) {
+      console.log(error);
+      this.failed = "The kettle is disconnected";
+    }
       const actualstatus = await axios.get("http://192.168.1.111/actualStatus");
       if (actualstatus.data == "1") {
         this.encendida = true;
@@ -67,13 +72,9 @@ export default {
           }
         }, 500);
       }
-      if (actualstatus.data == "0") {
+        if (actualstatus.data == "0") {
         this.encendida = false;
       }
-    } catch (error) {
-      console.log(error);
-      this.failed = "The kettle is disconnected";
-    } 
 },
   // http://192.168.1.111
   methods: {
@@ -81,7 +82,8 @@ export default {
       return args.value + "°C";
     },
     onChange: async function () {
-      if (!this.encendida) {
+      try {
+	if (!this.encendida) {
         setTimeout(async () => {
           await axios.get("http://192.168.1.111/on?temp=" + this.sliderValue);
           this.encendida = true;
@@ -90,16 +92,25 @@ export default {
         setTimeout(async () => {
           await axios.get("http://192.168.1.111/on?temp=" + this.sliderValue);
         }, 500);
-      }
-    },
+       }
+     } catch (error) {
+      console.log(error);
+      this.failed = "The kettle is disconnected";
+     }
+   },
     onSwitch: async function () {
+      try {
       if (!this.encendida) {
         await axios.get("http://192.168.1.111/on?temp=" + this.sliderValue);
       } else {
         await axios.get("http://192.168.1.111/off");
       }
       this.encendida = !this.encendida;
-    },
+     } catch (error) {
+      console.log(error);
+      this.failed = "The kettle is disconnected";
+     }
+   },
   },
 };
 </script>
