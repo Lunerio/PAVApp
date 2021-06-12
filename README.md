@@ -52,6 +52,17 @@ ssh user@ip '~/server_set'
 * This script sets up an static IP. Read the comments within!
 * Modify the values with the given instructions within the script.
 ![server_conf](https://raw.githubusercontent.com/Lunerio/PAVApp/main/pictures/server_ip.png)
+* If you want to configure this within the current computer run this:
+```
+sudo chmod +x server_static_ip
+./server_static_ip
+```
+* If you want to configure this on a remote computer run this:
+```
+sudo chmod+x server_static_ip
+scp ./server_static_ip user@ip:~
+ssh user@ip '~/server_static_ip'
+```
 
 
 ## Deploying the web page
