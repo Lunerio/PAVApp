@@ -51,7 +51,18 @@ export default {
         this.encendida = true;
         const actualtemp = await axios.get("http://192.168.1.111/actualTemp");
         this.sliderValue = actualtemp.data;
-	this.status = "Heating up, please hold!";
+        this.status = "Heating up, please hold!";
+        setInterval(async () => {
+          const actualstatus2 = await axios.get(
+            "http://192.168.1.111/actualStatus"
+          );
+          if (actualstatus2.data == "0") {
+            this.encendida = false;
+            this.status = "You can take your kettle now!";
+            this.sliderValue = 0;
+            stop;
+          }
+        }, 2000);
       }
       if (actualstatus.data == "0") {
         this.encendida = false;
