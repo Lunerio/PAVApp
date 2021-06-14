@@ -47,34 +47,38 @@ export default {
     msg: String,
   },
   async mounted() {
-    try {
-      await axios.get("http://192.168.1.111/actualStatus");
-    } catch (error) {
-      console.log(error);
-      this.failed = "The kettle is disconnected!!";
-    }
-    const actualstatus = await axios.get("http://192.168.1.111/actualStatus");
-    if (actualstatus.data == "1") {
-      this.encendida = true;
-      const actualtemp = await axios.get("http://192.168.1.111/actualTemp");
-      this.sliderValue = actualtemp.data;
-      setInterval(async () => {
-        const actualstatus = await axios.get(
-          "http://192.168.1.111/actualStatus"
-        );
-        if (actualstatus.data == "1") {
-          this.status = "Heating up, please hold!";
-        }
-        if (actualstatus.data == "0") {
-          this.encendida = false;
-          this.status = "You can take your kettle now!";
-          stop;
-        }
-      }, 500);
-    }
-    if (actualstatus.data == "0") {
-      this.encendida = false;
-    }
+    setInterval(async () => {
+      try {
+        await axios.get("http://192.168.1.111/actualStatus");
+      } catch (error) {
+        console.log(error);
+        this.failed = "The kettle is disconnected!!";
+      }
+    }, 5000);
+    setInterval(async () => {
+      const actualstatus = await axios.get("http://192.168.1.111/actualStatus");
+      if (actualstatus.data == "1") {
+        this.encendida = true;
+        const actualtemp = await axios.get("http://192.168.1.111/actualTemp");
+        this.sliderValue = actualtemp.data;
+        setInterval(async () => {
+          const actualstatus2 = await axios.get(
+            "http://192.168.1.111/actualStatus"
+          );
+          if (actualstatus2.data == "1") {
+            this.status = "Heating up, please hold!";
+          }
+          if (actualstatus2.data == "0") {
+            this.encendida = false;
+            this.status = "You can take your kettle now!";
+            stop;
+          }
+        }, 1000);
+      }
+      if (actualstatus.data == "0") {
+        this.encendida = false;
+      }
+    }, 2000);
   },
   methods: {
     degrees: function (args) {
