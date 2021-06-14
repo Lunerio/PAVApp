@@ -46,13 +46,13 @@ export default {
   },
   async mounted() {
     try {
+      const actualtemp = await axios.get("http://192.168.1.111/actualTemp");
+      this.sliderValue = actualtemp.data;
       const actualstatus = await axios.get("http://192.168.1.111/actualStatus");
       if (actualstatus.data == "1") {
         this.encendida = true;
-        const actualtemp = await axios.get("http://192.168.1.111/actualTemp");
-        this.sliderValue = actualtemp.data;
         this.status = "Heating up, please hold!";
-        setInterval(async () => {
+        let interval = setInterval(async () => {
           const actualstatus2 = await axios.get(
             "http://192.168.1.111/actualStatus"
           );
@@ -60,9 +60,9 @@ export default {
             this.encendida = false;
             this.status = "You can take your kettle now!";
             this.sliderValue = 0;
-            stop;
+            clearInterval(interval);
           }
-        }, 2000);
+        }, 6000);
       }
       if (actualstatus.data == "0") {
         this.encendida = false;
@@ -89,7 +89,7 @@ export default {
             );
             if (actualstatus.data == "1") {
               this.encendida = true;
-              setInterval(async () => {
+              let interval2 = setInterval(async () => {
                 const actualstatus2 = await axios.get(
                   "http://192.168.1.111/actualStatus"
                 );
@@ -100,9 +100,9 @@ export default {
                   this.encendida = false;
                   this.status = "You can take your kettle now!";
                   this.sliderValue = 0;
-                  stop;
+                  clearInterval(interval2);
                 }
-              }, 3000);
+              }, 6000);
             }
             if (actualstatus.data == "0") {
               this.encendida = false;
@@ -111,7 +111,7 @@ export default {
             console.log(error);
             this.status = "The kettle is disconnected!!";
           }
-        }, 2000);
+        }, 6000);
       } else {
         setTimeout(async () => {
           await axios.get("http://192.168.1.111/on?temp=" + this.sliderValue);
@@ -136,7 +136,7 @@ export default {
                   this.sliderValue = 0;
                   stop;
                 }
-              }, 3000);
+              }, 6000);
             }
             if (actualstatus.data == "0") {
               this.encendida = false;
@@ -145,7 +145,7 @@ export default {
             console.log(error);
             this.status = "The kettle is disconnected!!";
           }
-        }, 2000);
+        }, 6000);
       }
     },
     onSwitch: async function () {
@@ -171,7 +171,7 @@ export default {
                   this.sliderValue = 0;
                   stop;
                 }
-              }, 3000);
+              }, 6000);
             }
             if (actualstatus.data == "0") {
               this.encendida = false;
@@ -180,7 +180,7 @@ export default {
             console.log(error);
             this.status = "The kettle is disconnected!!";
           }
-        }, 2000);
+        }, 6000);
       } else {
         await axios.get("http://192.168.1.111/off");
       }
