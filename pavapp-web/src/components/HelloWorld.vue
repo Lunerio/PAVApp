@@ -7,7 +7,6 @@
       </label>
     </p>
     <div>{{ status }}</div>
-    <div>{{ failed }}</div>
     <div class="box">
       <round-slider
         v-bind:change="onChange"
@@ -40,7 +39,6 @@ export default {
       encendida: false,
       sliderValue: 0,
       status: "",
-      failed: "",
     };
   },
   props: {
@@ -52,15 +50,15 @@ export default {
         await axios.get("http://192.168.1.111/actualStatus");
       } catch (error) {
         console.log(error);
-        this.failed = "The kettle is disconnected!!";
+        this.status = "The kettle is disconnected!!";
       }
-    }, 5000);
+    }, 4000);
+    const actualtemp = await axios.get("http://192.168.1.111/actualTemp");
+    this.sliderValue = actualtemp.data;
     setInterval(async () => {
       const actualstatus = await axios.get("http://192.168.1.111/actualStatus");
       if (actualstatus.data == "1") {
         this.encendida = true;
-        const actualtemp = await axios.get("http://192.168.1.111/actualTemp");
-        this.sliderValue = actualtemp.data;
         setInterval(async () => {
           const actualstatus2 = await axios.get(
             "http://192.168.1.111/actualStatus"
@@ -71,9 +69,10 @@ export default {
           if (actualstatus2.data == "0") {
             this.encendida = false;
             this.status = "You can take your kettle now!";
+            this.sliderValue = 0;
             stop;
           }
-        }, 1000);
+        }, 3000);
       }
       if (actualstatus.data == "0") {
         this.encendida = false;
@@ -98,7 +97,7 @@ export default {
         }
       } catch (error) {
         console.log(error);
-        this.failed = "The kettle is disconnected!!";
+        this.status = "The kettle is disconnected!!";
       }
     },
     onSwitch: async function () {
@@ -111,7 +110,7 @@ export default {
         this.encendida = !this.encendida;
       } catch (error) {
         console.log(error);
-        this.failed = "The kettle is disconnected!!";
+        this.status = "The kettle is disconnected!!";
       }
     },
   },
