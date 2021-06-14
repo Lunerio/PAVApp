@@ -102,7 +102,7 @@ void turnOn() {
   sensorDS18B20.requestTemperatures();
   Temperature = sensorDS18B20.getTempCByIndex(0);
 
-  if (tempValue == 0 || tempValue < 0 || tempValue >= 100) {
+  if (tempValue == 0 || tempValue < 0 || tempValue >= 82) {
     tempValue = 82;
   }
 
