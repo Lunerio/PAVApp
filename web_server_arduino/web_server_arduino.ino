@@ -95,15 +95,25 @@ String SendHTML(float Temperature){
 
 void turnOn() {
   float userInput = 0.0;
+  int tempValue = 0;
   if (server.hasArg("temp")) {
     userInput = server.arg(0).toFloat();
+    // Callibrate according to the distance between sensor and water
+    if (userInput <= 40.0) {
+      tempValue = int(userInput - 15);
+    } else if (userInput <= 60) {
+      tempValue = int(userInput - 23);
+    } else if (userInput <= 80) {
+      tempValue = int(userInput - 30);
+    } else {
+      tempValue = int(userInput - 40);
+    }
   }
-  int tempValue = int((userInput * 75.0)/100.0);
   sensorDS18B20.requestTemperatures();
   Temperature = sensorDS18B20.getTempCByIndex(0);
 
-  if (tempValue == 0 || tempValue < 0 || tempValue >= 82) {
-    tempValue = 82;
+  if (tempValue == 0 || tempValue < 0 || tempValue >= 95) {
+    tempValue = 75;
   }
 
   if (tempValue <= Temperature) {
