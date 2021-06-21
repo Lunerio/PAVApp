@@ -6,7 +6,7 @@
         v-on:click="changeTheme"
         :value="'Cambiar ' + theme"
       />
-      <span class="slider rounded"></span>
+      <span class="slider2 rounded"></span>
     </label>
     <img alt="PAVAapp Logo" src="./assets/PAVApp-logo.png" />
     <HelloWorld msg="PAVApp" />
