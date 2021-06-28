@@ -15,6 +15,9 @@
 
 #### Hardware connection
 * Connect the temperature sensor and the TTL as follows:
+![temp_connection](https://github.com/Lunerio/PAVApp/blob/main/pictures/temp_connection.jpeg?raw=true)
+
+![ttl_connection](https://github.com/Lunerio/PAVApp/blob/main/pictures/ttl_connection.jpeg)
 
 
 #### IDE config and code loading process
