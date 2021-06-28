@@ -12,6 +12,12 @@
 * RaspberryPi with Raspbian OS
 
 ### Device configuration
+
+#### Hardware connection
+* Connect the temperature sensor and the TTL as follows:
+
+
+#### IDE config and code loading process
 * Install the Arduino IDE.
 * Copy the content of the libraries folder inside the repository into the libraries folder of the Arduino IDE.
 * Open the the Arduino IDE as superuser.
